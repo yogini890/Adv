@@ -31,7 +31,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-[#0D1B2A] text-sm mb-1">WhatsApp</p>
-                    <a href="https://wa.me/919999999999" target="_blank" rel="noopener noreferrer" className="text-[#B8952A] text-sm hover:underline">+91 99999 99999</a>
+                    <a href="https://wa.me/9029022697" target="_blank" rel="noopener noreferrer" className="text-[#B8952A] text-sm hover:underline">+91 99999 99999</a>
                     <p className="text-[#6B7280] text-xs mt-0.5">Mon–Sat, 10am–6pm IST</p>
                   </div>
                 </div>
