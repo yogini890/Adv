@@ -11,7 +11,26 @@ if (!process.env.JWT_SECRET) {
 
 const app = express();
 
-app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+const allowedOrigins = [
+  'http://localhost:3000',
+  ...(process.env.CLIENT_URL || '')
+    .split(',')
+    .map((origin) => origin.trim())
+    .filter(Boolean),
+];
+
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error(`CORS blocked origin: ${origin}`));
+      }
+    },
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 app.use('/api/auth', require('./routes/auth'));

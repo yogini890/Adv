@@ -7,8 +7,15 @@ export async function apiFetch(endpoint: string, options: RequestInit = {}) {
     ...(token ? { Authorization: `Bearer ${token}` } : {}),
     ...(options.headers as Record<string, string> || {}),
   };
-  const res = await fetch(`${API_BASE}${endpoint}`, { ...options, headers });
-  const data = await res.json();
+
+  let res: Response;
+  try {
+    res = await fetch(`${API_BASE}${endpoint}`, { ...options, headers });
+  } catch {
+    throw new Error('Unable to connect to server. Check NEXT_PUBLIC_API_URL and API CORS settings.');
+  }
+
+  const data = await res.json().catch(() => ({}));
   if (!res.ok) throw new Error(data.message || 'Request failed');
   return data;
 }
