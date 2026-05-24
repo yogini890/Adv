@@ -1,3 +1,13 @@
+import {
+  CONTACT_EMAIL,
+  GOOGLE_BUSINESS_URL,
+  MAP_EMBED_URL,
+  OFFICE_ADDRESS,
+  SOCIAL_LINKS,
+  WHATSAPP_DISPLAY,
+  WHATSAPP_URL,
+} from '@/lib/constants';
+
 export default function ContactPage() {
   return (
     <>
@@ -22,7 +32,10 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-[#0D1B2A] text-sm mb-1">Office Address</p>
-                    <p className="text-[#6B7280] text-sm leading-relaxed">AMS Legal — Advocate Meet Shah<br />Bombay High Court Complex<br />Fort, Mumbai — 400 001<br />Maharashtra, India</p>
+                    <p className="text-[#6B7280] text-sm leading-relaxed text-justify">
+                      AMS Legal — Advocate Meet Shah<br />
+                      {OFFICE_ADDRESS}
+                    </p>
                   </div>
                 </div>
                 <div className="flex gap-4">
@@ -31,8 +44,26 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-[#0D1B2A] text-sm mb-1">WhatsApp</p>
-                    <a href="https://wa.me/9029022697" target="_blank" rel="noopener noreferrer" className="text-[#B8952A] text-sm hover:underline">+91 99999 99999</a>
+                    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-[#B8952A] text-sm hover:underline">
+                      {WHATSAPP_DISPLAY}
+                    </a>
                     <p className="text-[#6B7280] text-xs mt-0.5">Mon–Sat, 10am–6pm IST</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-11 h-11 rounded-lg bg-[#0D1B2A] flex items-center justify-center shrink-0">
+                    <svg className="w-5 h-5 text-[#B8952A]" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
+                      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-[#0D1B2A] text-sm mb-1">Google Business</p>
+                    <a href={GOOGLE_BUSINESS_URL} target="_blank" rel="noopener noreferrer" className="text-[#B8952A] text-sm hover:underline">
+                      View on Google
+                    </a>
                   </div>
                 </div>
                 <div className="flex gap-4">
@@ -41,7 +72,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-[#0D1B2A] text-sm mb-1">Email</p>
-                    <a href="mailto:contact@tlclegal.in" className="text-[#B8952A] text-sm hover:underline">contact@tlclegal.in</a>
+                    <a href={`mailto:${CONTACT_EMAIL}`} className="text-[#B8952A] text-sm hover:underline break-all">{CONTACT_EMAIL}</a>
                   </div>
                 </div>
                 <div className="flex gap-4">
@@ -49,8 +80,12 @@ export default function ContactPage() {
                     <svg className="w-5 h-5 text-[#B8952A]" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
                   </div>
                   <div>
-                    <p className="font-semibold text-[#0D1B2A] text-sm mb-1">LinkedIn</p>
-                    <a href="https://linkedin.com/in/advocate-meet-shah" target="_blank" rel="noopener noreferrer" className="text-[#B8952A] text-sm hover:underline">Advocate Meet Shah</a>
+                    <p className="font-semibold text-[#0D1B2A] text-sm mb-1">Social Media</p>
+                    <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
+                      <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="text-[#B8952A] hover:underline">LinkedIn</a>
+                      <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" className="text-[#B8952A] hover:underline">Facebook</a>
+                      <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="text-[#B8952A] hover:underline">Instagram</a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -62,10 +97,10 @@ export default function ContactPage() {
             <div>
               <p className="text-[#B8952A] text-xs font-medium tracking-widest uppercase mb-3">Location</p>
               <h2 className="text-3xl font-semibold text-[#0D1B2A] mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>Find Us</h2>
-              <div className="rounded-xl overflow-hidden shadow-lg border border-[#EDE8DF] h-96">
+              <div className="rounded-xl overflow-hidden shadow-lg border border-[#EDE8DF] h-72 sm:h-96">
                 <iframe
                   title="AMS Legal Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.9!2d72.8324!3d18.9332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7d1c75db78951%3A0x4a4c98ee1e2e5b7a!2sBombay+High+Court!5e0!3m2!1sen!2sin!4v1699000000000"
+                  src={MAP_EMBED_URL}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -74,7 +109,9 @@ export default function ContactPage() {
                   referrerPolicy="no-referrer-when-downgrade"
                 />
               </div>
-              <p className="text-xs text-[#6B7280] mt-3 text-center">Bombay High Court, Fort, Mumbai — 400 001</p>
+              <p className="text-xs text-[#6B7280] mt-3 text-center leading-relaxed px-2">
+                {OFFICE_ADDRESS}
+              </p>
             </div>
           </div>
         </div>

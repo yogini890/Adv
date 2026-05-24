@@ -153,13 +153,17 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((svc) => (
-              <div key={svc.title} className="bg-white rounded-xl p-6 border border-[#EDE8DF] hover:border-[#B8952A]/40 hover:shadow-lg transition-all group">
+              <Link
+                key={svc.title}
+                href="/services"
+                className="bg-white rounded-xl p-6 border border-[#EDE8DF] hover:border-[#B8952A]/40 hover:shadow-lg transition-all group block"
+              >
                 <div className="w-12 h-12 rounded-lg bg-[#0D1B2A] text-[#B8952A] flex items-center justify-center mb-4 group-hover:bg-[#B8952A] group-hover:text-white transition-colors">
                   {svc.icon}
                 </div>
                 <h3 className="text-lg font-semibold text-[#0D1B2A] mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>{svc.title}</h3>
                 <p className="text-sm text-[#6B7280] leading-relaxed">{svc.desc}</p>
-              </div>
+              </Link>
             ))}
           </div>
           <div className="text-center mt-10">

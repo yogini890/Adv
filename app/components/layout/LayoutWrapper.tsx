@@ -2,6 +2,7 @@
 import { usePathname } from 'next/navigation';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import ChatbotWidget from './ChatbotWidget';
 
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -14,6 +15,7 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
       <Navbar />
       <main className="pt-16">{children}</main>
       <Footer />
+      <ChatbotWidget />
     </>
   );
 }
